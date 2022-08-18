@@ -21,7 +21,7 @@ build:
   # There are no binaries available for ppc64le, so we can't repack anything
   # https://dart.dev/get-dart/archive
   skip: True   # [ppc64le]
-  number: 1
+  number: 2
   binary_relocation: False
   missing_dso_whitelist:
     # normal linux stuff that would go away if we had libgcc-ng in the run deps
@@ -35,7 +35,7 @@ build:
 test:
   commands:
     - dart --help
-    - IF NOT EXIST %LIBRARY_BIN%\dart.exe exit 1   # [win]
+    - IF NOT EXIST "%LIBRARY_BIN%\dart.exe" exit 1   # [win]
 
 about:
   home: https://dart.dev/
