@@ -1,36 +1,36 @@
 {% set name = "dart-sdk" %}
-{% set version = "2.17.6" %}
+{% set version = "2.18.1" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  - url: "https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-macos-x64-release.zip"    # [osx and x86_64]
-    sha256: "9b1881c4167bba76c6ac0f92bbdb777a9d2b89c62977a7e95c37e028ecb9fa62"                                                    # [osx and x86_64]
-  - url: "https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-macos-arm64-release.zip"  # [osx and arm64]
-    sha256: "9c655ab17e1239dcd3ba56d8a9483ee298dc92eea305a46a10b2fccfc7e441f2"                                                    # [osx and arm64]
-  - url: "https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-linux-x64-release.zip"    # [linux and x86_64]
-    sha256: "f837f385603a1cfb14ddb7dd0cd64820b297646626bdb689ccfc3278fa83b2b1"                                                    # [linux and x86_64]
-  - url: "https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-linux-arm64-release.zip"  # [linux and aarch64]
-    sha256: "8e71b0c958a587c83ecd6c8cc637bc624bb85bc64e877e9ea00831a659a904b1"                                                    # [linux and aarch64]
-  - url: "https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-windows-x64-release.zip"  # [win]
-    sha256: "a0671592e21d662ea3c815dddb6f7a0a963fcdaf9a2528c844bb9185605ca95c"                                                    # [win]
+  - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-macos-x64-release.zip  # [osx and x86_64]
+    sha256: 8a0f851d1e33f4e9e16af0b4427927177f26090b3c147bb8479bd51b31ce2110  # [osx and x86_64]
+  - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-macos-arm64-release.zip  # [osx and arm64]
+    sha256: d5bb0c87189578fff11b8a320d159bcdf1a1ead1f47e23bd509308dadf11fa9a  # [osx and arm64]
+  - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-linux-x64-release.zip  # [linux and x86_64]
+    sha256: 7369fcbfb3c96ed85511224580a8ce0e5ecfc8227af563d396ede2055cdf84e1  # [linux and x86_64]
+  - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-linux-arm64-release.zip  # [linux and aarch64]
+    sha256: 1c8d96c0b718873f9ae6d9aa7d866cddefdb86f8b1584cbdf589670d65b7c167  # [linux and aarch64]
+  - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-windows-x64-release.zip  # [win]
+    sha256: fc58158878682456abcf70045a389edcabe35b5034dfc6d307c0e06566be87da  # [win]
 
 build:
   # There are no binaries available for ppc64le, so we can't repack anything
   # https://dart.dev/get-dart/archive
-  skip: True   # [ppc64le]
-  number: 2
-  binary_relocation: False
+  skip: true  # [ppc64le]
+  number: 0
+  binary_relocation: false
   missing_dso_whitelist:
     # normal linux stuff that would go away if we had libgcc-ng in the run deps
-    - "*/ld-linux.so.2"
-    - "*/lib64/ld-linux-x86-64.so.2"
-    - "*/libpthread.so.0"
-    - "*/libdl.so.2"
-    - "*/libm.so.6"
-    - "*/libc.so.6"
+    - '*/ld-linux.so.2'
+    - '*/lib64/ld-linux-x86-64.so.2'
+    - '*/libpthread.so.0'
+    - '*/libdl.so.2'
+    - '*/libm.so.6'
+    - '*/libc.so.6'
 
 test:
   commands:
