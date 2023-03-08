@@ -1,5 +1,5 @@
 {% set name = "dart-sdk" %}
-{% set version = "2.18.2" %}
+{% set version = "2.19.4" %}
 
 package:
   name: {{ name }}
@@ -7,15 +7,15 @@ package:
 
 source:
   - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-macos-x64-release.zip  # [osx and x86_64]
-    sha256: c5c478d97f64b7bdfb5ac4e5c25724af177257691a17c9cfc1b59b069159e61a  # [osx and x86_64]
+    sha256: 07136127f4f1fc8ff54ab3d69df53535bed14027d56982c0db4af394ed8d0c25  # [osx and x86_64]
   - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-macos-arm64-release.zip  # [osx and arm64]
-    sha256: 49fed61ac432440b2817666c8c09040cf586a66536d4ddd9e963dfbc30b29fe3  # [osx and arm64]
+    sha256: 612118e856e6eedbdbea4c8d9e6cd1fa73a21614db7ed2e66dd991901004a103  # [osx and arm64]
   - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-linux-x64-release.zip  # [linux and x86_64]
-    sha256: 0b7f988de7172ef4a626b2f08bd1fb4e00fd369d0002b456c7711d06b7d0a535  # [linux and x86_64]
+    sha256: f8591944512834ba19b4d8383d270d7f56fef03c56ba53d4e35c23db80ea8a33  # [linux and x86_64]
   - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-linux-arm64-release.zip  # [linux and aarch64]
-    sha256: cf220ad62e7ff4fd82fac8f3740ae1170a553b83fe22dfbf5f9d25fa7f607a42  # [linux and aarch64]
+    sha256: c81303feea24228148bd4ec14c65bb9c341cba3596e3d68e8a874a9df947f928  # [linux and aarch64]
   - url: https://storage.googleapis.com/dart-archive/channels/stable/release/{{ version }}/sdk/dartsdk-windows-x64-release.zip  # [win]
-    sha256: ee2904f66d809750328211ed9db59c88b6f9874d487462dd59eb9c6a38853df5  # [win]
+    sha256: 852cb28d274603b5c4940a1710a49bdc2535b7f726645b3baed9bc97bd1ec45f  # [win]
 
 build:
   # There are no binaries available for ppc64le, so we can't repack anything
