@@ -1,0 +1,65 @@
+context:
+  name: dart-sdk
+  version: 3.11.1
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  - if: linux and x86_64
+    then:
+      url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-linux-x64-release.zip
+      sha256: 049bb0a0171a776b82cbd1b0a644e43fbeafe8a67e851c077e2f0d1da6f28a86
+  - if: linux and aarch64
+    then:
+      url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-linux-arm64-release.zip
+      sha256: 0cf220ad62e7ff4fd82fac8f3740ae1170a553b83fe22dfbf5f9d25fa7f607a4
+  - if: win and x86_64
+    then:
+      url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-windows-x64-release.zip
+      sha256: 7cefc5a1a1fbe10a7428dea86493f43866f0343ebc7a1e401c8b708ebea26e0a
+  - if: osx and x86_64
+    then:
+      url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-macos-x64-release.zip
+      sha256: d3eb1ec8106b81a654cdbcc7e7107d518a802b71fed26b34c2e78a861b59f382
+  - if: osx and arm64
+    then:
+      url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-macos-arm64-release.zip
+      sha256: b73fda91716e9f4fa2e997d89eb4988adb1ba9718c715516743380f797309d0d
+
+build:
+  number: 0
+  skip:
+    - ppc64le
+  dynamic_linking:
+    binary_relocation: false
+    missing_dso_allowlist:
+      # normal linux stuff that would go away if we had libgcc-ng in the run deps
+      - "*/ld-linux.so.2"
+      - "*/lib64/ld-linux-x86-64.so.2"
+      - "*/libpthread.so.0"
+      - "*/libdl.so.2"
+      - "*/libm.so.6"
+      - "*/libc.so.6"
+
+tests:
+  - package_contents:
+      bin:
+        - if: win
+          then: dart.exe
+  - script:
+      - dart --help
+
+about:
+  homepage: https://dart.dev/
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: a client-optimized language for developing fast apps on any platform
+  repository: https://github.com/dart-lang/sdk
+  documentation: https://dart.dev/
+
+extra:
+  recipe-maintainers:
+    - msarahan
+    - munechika-koyo
