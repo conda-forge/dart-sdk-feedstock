@@ -1,9 +1,8 @@
 context:
-  name: dart-sdk
   version: 3.11.1
 
 package:
-  name: ${{ name|lower }}
+  name: dart-sdk
   version: ${{ version }}
 
 source:
