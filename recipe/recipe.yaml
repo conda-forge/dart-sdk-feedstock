@@ -1,5 +1,5 @@
 context:
-  version: "3.12.1"
+  version: "3.12.2"
 
 package:
   name: dart-sdk
@@ -9,23 +9,23 @@ source:
   - if: linux and x86_64
     then:
       url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-linux-x64-release.zip
-      sha256: 6a2bbf64a133c9c86a62a532dbd3e0b4db4ac365abd456e9f9d1c5df61fcdbf8
+      sha256: 28e47b44cf075f36771046c068bb0d174201cf9c7608744aed1cc23204299c2d
   - if: linux and aarch64
     then:
       url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-linux-arm64-release.zip
-      sha256: b44087930108f6d7f56bf580a02d5d2a97ff94519c5a288339982202e1b4c481
+      sha256: f82c83ece7d168047550dfd4a664e4071ac7c488bddb72dc43102c22d7e0b518
   - if: win and x86_64
     then:
       url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-windows-x64-release.zip
-      sha256: c7af2bfc518ee1c429d5c4c5914588d35efa3aae16650b0b10b5805dc9f22269
+      sha256: 77fd96c823ed09a85e58209a2c5f16b0fc02e5ed4f3e3d46fddf4be763d498d6
   - if: osx and x86_64
     then:
       url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-macos-x64-release.zip
-      sha256: c56b322cdbc15e0d7c373970c2e2be53bfb438458bd67c1828703e744acb7916
+      sha256: 38199f56fe22f2235e76799191d5b9516e360369c61b6ba4411398d5d5920bab
   - if: osx and arm64
     then:
       url: https://storage.googleapis.com/dart-archive/channels/stable/release/${{ version }}/sdk/dartsdk-macos-arm64-release.zip
-      sha256: eaff3823d5a0c5cdcb65b38adf204e5f35290fcd560d48cb47c2fac7e1547b97
+      sha256: cd8753928e77b6b665bd70dce0e64b4ec6d2e2fde141d6409bb716c8ac1f1c0a
 
 build:
   number: 0
